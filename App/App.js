@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from "react";
 import {Platform, StatusBar, StyleSheet, SafeAreaView, AppRegistry} from 'react-native';
 import { createRootNavigator } from "./navigation/Navigation";
 import { isSignedIn } from "./auth/Auth";
 
-
 export default class App extends Component {
-
     constructor(props) {
         super(props);
 
@@ -17,8 +15,8 @@ export default class App extends Component {
 
     componentDidMount() {
         isSignedIn()
-          .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
-          .catch(err => alert("An error occurred"));
+            .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
+            .catch(err => alert("An error occurred"));
     }
 
     render() {
@@ -31,13 +29,12 @@ export default class App extends Component {
 
         const Layout = createRootNavigator(signedIn);
         return (
-          <SafeAreaView style={styles.droidSafeArea}>
-              <Layout />
-          </SafeAreaView>
+            <SafeAreaView style={styles.droidSafeArea}>
+                    <Layout />
+            </SafeAreaView>
 
         );
     }
-
 }
 const styles = StyleSheet.create({
     droidSafeArea: {
@@ -46,5 +43,3 @@ const styles = StyleSheet.create({
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
     },
 });
-
-
