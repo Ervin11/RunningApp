@@ -2,4 +2,5 @@ App/node_modules
 .git
 .idea
 App/.expo
+.DS_Store
 package-lock.json
